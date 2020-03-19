@@ -1,0 +1,2 @@
+create user exampledbuser with NOINHERIT LOGIN ENCRYPTED PASSWORD 'exampledbuser123';
+create database exampledbdev owner=exampledbuser;
