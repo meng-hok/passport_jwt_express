@@ -4,9 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./controllers/index');
-var usersRouter = require('./controllers/users');
-var loginRouter = require('./controllers/login');
+var userRouter = require('./controllers/user');
 
 var app = express();
 
@@ -20,9 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/', usersRouter);
-app.use('/weapi', loginRouter);
+app.use('/weapi/v1', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
