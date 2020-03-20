@@ -20,8 +20,8 @@ exports.getUserById = (id, callbackFn) =>
 
 exports.signUpUser = (params, res) =>
 {
-    let sql = "UPDATE tbl_user SET last_nm = $1, status = $2 WHERE user_id = $3";
-    db.query(sql, [params.last_nm, params.status, params.id], (error, results) =>
+    let sql = "INSERT INTO tbl_user VALUES($1, $2, $3, $4)";
+    db.query(sql, [params.id, params.first_nm, params.last_nm, params.status], (error, results) =>
     {
         res.send({"error":false});
     });
