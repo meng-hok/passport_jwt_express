@@ -21,7 +21,8 @@ router.get('/users/:id', async (req, res, next) =>
 
 //Update specific user
 router.post('/users/signup', async (req, res, next) =>
-{
+{   
+    console.log(req.body)
     Users.signUpUser(req.body, res);
 });
 

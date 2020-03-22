@@ -1,8 +1,8 @@
 module.exports = 
 {
-    user    : 'exampledbuser',
+    user    : 'postgres',
     host    : 'localhost',
-    database: 'exampledbdev',
-    password: 'exampledbuser123',
+    database: 'jwt',
+    password: 'postgres',
     port    : 5432
 };

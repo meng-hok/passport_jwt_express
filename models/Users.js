@@ -13,7 +13,7 @@ exports.getUserById = (id, callbackFn) =>
 {
     let sql = "SELECT * FROM tbl_user where user_id = $1";
     db.query(sql, [id], (error, {rowCount, rows}) =>
-    {
+    {   
         return callbackFn({rows, rowCount});
     });
 };
@@ -23,7 +23,10 @@ exports.signUpUser = (params, res) =>
     let sql = "INSERT INTO tbl_user VALUES($1, $2, $3, $4)";
     db.query(sql, [params.id, params.first_nm, params.last_nm, params.status], (error, results) =>
     {
-        res.send({"error":false});
+        if(error)
+            res.send({"error":error});
+        else
+            res.send(results)    
     });
 };
 

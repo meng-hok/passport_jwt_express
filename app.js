@@ -3,9 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-//var userRouter = require('./controllers/user');
-
+const dotenv = require("dotenv")
+dotenv.config();
+const passport = require('./configs/authentication_token').passport;
 var app = express();
 
 // view engine setup
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/weapi/v1', userRouter);
 
 require('./configs/route')(app);
-
+app.use(passport.initialize());
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
