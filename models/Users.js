@@ -21,7 +21,7 @@ exports.getUserById = (id, callbackFn) =>
 exports.signUpUser = (params, res) =>
 {
     let sql = "INSERT INTO tbl_user VALUES($1, $2, $3, $4)";
-    db.query(sql, [params.id, params.first_nm, params.last_nm, params.status], (error, results) =>
+    db.query(sql, [params.id, params.email, params.password, params.status], (error, results) =>
     {
         if(error)
             res.send({"error":error});
