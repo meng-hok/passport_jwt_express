@@ -16,6 +16,8 @@ Noticed Controller and Configuration file
 	./controller/AuthenticationController.js
 	./.env
 Flow Config
-	after login set local session randomstring = token as pair in redis
-	send token 
+	after login  
+		1. local session = randomstring
+		2. token as pair in redis
+		3. send token 
 	check only randomstring match 
