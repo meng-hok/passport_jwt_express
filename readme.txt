@@ -17,7 +17,9 @@ Noticed Controller and Configuration file
 	./.env
 Flow Config
 	after login  
-		1. local session = randomstring
-		2. token as pair in redis
-		3. send token 
+		1. local session.sid = randomstring
+		2. store {"session.sid" : "userinformation"} as key-value in redis
+		3. get GET session.sid == null device use different token
 	check only randomstring match 
+
+
